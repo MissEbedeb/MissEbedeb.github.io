@@ -24,6 +24,8 @@ let hue2 = 220;
 
 let c;
 
+let song;
+
 function preload(){
     
 }
@@ -40,6 +42,9 @@ function setup(){
     let catFlichImg = loadImage('imgs/catFlinch.jpeg');
     let clickImg = loadImage('imgs/CLICKTOSTART.jpg');
 
+    soundFormats('mp3','ogg');
+    song = loadSound('bathTime');
+
     c = new Cat(catImg,catFlichImg,clickImg);
 }
 
@@ -52,6 +57,12 @@ function draw(){
         bubble[i].move();
         bubble[i].overlap(pmx[i],pmy[i]);
         bubble[i].display(colorPick(hue1,hue2));
+    }
+
+    if(start){
+        if(!song.isPlaying()){
+            song.play();
+        }
     }
 } 
 
