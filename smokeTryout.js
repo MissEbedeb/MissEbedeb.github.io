@@ -27,7 +27,8 @@ let c;
 let song;
 
 function preload(){
-    
+    soundFormats('mp3','ogg');
+    song = loadSound('bathTime'); 
 }
 
 function setup(){
@@ -41,9 +42,6 @@ function setup(){
     let catImg = loadImage('imgs/cat.jpeg');
     let catFlichImg = loadImage('imgs/catFlinch.jpeg');
     let clickImg = loadImage('imgs/CLICKTOSTART.jpg');
-
-    soundFormats('mp3','ogg');
-    song = loadSound('bathTime');
 
     c = new Cat(catImg,catFlichImg,clickImg);
 }
@@ -59,7 +57,7 @@ function draw(){
         bubble[i].display(colorPick(hue1,hue2));
     }
 
-    if(start){
+    if(start){   
         if(!song.isPlaying()){
             song.play();
         }
@@ -67,6 +65,10 @@ function draw(){
 } 
 
 //--------FUNCTIONS--------//
+function mousePressed(){
+    getAudioContext().resume();
+}
+
 function mouseMoved(){
     if(start){
         let size = random(10,120);
