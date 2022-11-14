@@ -6,7 +6,12 @@ function preload(){
 
 function setup() {
   createCanvas(700, 500);
-  personalityDisplay();
+  background(180,200,255);
+  // textSize(50);
+  // let txt = '*Press any button to start!*';
+  // let 
+  // text(,70,100)
+  txtDraw('Press any button to start!',60,height/2);
 }
 
 function draw() {
